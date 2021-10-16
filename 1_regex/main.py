@@ -1,16 +1,13 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+from common.acts import Acts
+import regex.regex
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+def count_additions(acts):
+    p = regex.compile(r'w art. [0-9]+ .* dodaje się ust. [0-9]+', regex.MULTILINE)
+    for act_name, text in acts:
+        print(f'Analyzing {act_name}...')
+        print(p.findall(text))
 
 
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    count_additions(Acts('../ustawy').first_n_acts(2))
