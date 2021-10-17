@@ -1,7 +1,7 @@
 from pathlib import Path
 
 
-class Acts:
+class ActsReader:
     def __init__(self, path='./ustawy'):
         self.path = path
 
@@ -15,10 +15,11 @@ class Acts:
 
     def first_n_acts(self, n=10):
         for i, p in enumerate(Path(self.path).glob('**/*.txt')):
-            if i > n:
+            if i >= n:
                 break
             yield p.name, p.read_text()
 
 
 if __name__ == '__main__':
-    Acts().first_n_acts(3)
+    for name, act in ActsReader().first_n_acts(3):
+        print(act)
