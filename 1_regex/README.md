@@ -22,3 +22,13 @@ Amendments of units by year:
 
 ![Types of amendments](./img/phrase_counter/amendments_by_type_by_year.png)
  
+ 
+## Inflectional word counter
+Regexs:\
+Word "ustawa": `(ustaw)(\b|a|ą|ach|ami|ie|om|y)`\
+Word "ustawa" followed by "z dnia": `(ustaw)(\b|a|ą|ach|ami|ie|om|y)(?= z dnia)`\
+Word "ustawa" not followed by "z dnia": `(ustaw)(\b|a|ą|ach|ami|ie|om|y)(?! z dnia)`\
+Word "ustawa" following "o zmianie": `(?<!o zmianie )(ustaw)(\b|a|ą|ach|ami|ie|om|y)`
+
+![Counts for different tasks](./img/inflectional_word_counter/word_counts.png)
+ 

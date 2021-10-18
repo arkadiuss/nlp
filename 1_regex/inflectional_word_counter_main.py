@@ -2,6 +2,7 @@ from collections import Counter
 import numpy as np
 import regex.regex
 from nlp_common.acts_reader import ActsReader
+from matplotlib import pyplot as plt
 
 
 def count_by_regex(acts, reg) -> Counter:
@@ -10,6 +11,16 @@ def count_by_regex(acts, reg) -> Counter:
     for act_name, _, text in acts:
         global_counter += Counter(p.findall(text))
     return global_counter
+
+
+def plot_ctrs(ctrs: [int]):
+    x_pos = np.arange(len(ctrs))
+    plt.bar(x_pos, ctrs)
+    plt.xticks(x_pos, ['ustaw*', 'ustaw* z dnia', 'ustaw* (~z dnia)', '(~o zmianie) ustaw*'])
+    for x, y in zip(x_pos, ctrs):
+        plt.text(x - 0.25, 1.01*y, str(y))
+    plt.savefig('./img/inflectional_word_counter/word_counts.png')
+    plt.clf()
 
 
 def main():
@@ -46,6 +57,8 @@ def main():
     print(ustaw_not_following_ctr)
     ustaw_not_following_total = np.sum(list(ustaw_not_following_ctr.values()))
     print(f'Total count: {ustaw_not_following_total}')
+
+    plot_ctrs([ustaw_total, ustaw_followed_by_total, ustaw_not_followed_by_total, ustaw_not_following_total])
 
 
 if __name__ == '__main__':
