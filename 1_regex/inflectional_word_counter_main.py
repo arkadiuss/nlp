@@ -31,19 +31,19 @@ def main():
     print('Words with "ustaw" infix:')
     print(count_by_regex(acts(), r'ustaw[\w]*'))
 
-    ustaw_ctr = count_by_regex(acts(), r'(ustaw)(\b|a|ą|ach|ami|ie|om|y)')
+    ustaw_ctr = count_by_regex(acts(), r'(ustaw)(\b|a|ą|ach|ami|ę|ie|om|y)')
     print('All forms from the word "ustawa":')
     print(ustaw_ctr)
     ustaw_total = np.sum(list(ustaw_ctr.values()))
     print(f'Total count: {ustaw_total}')
 
-    ustaw_followed_by_ctr = count_by_regex(acts(), r'(ustaw)(\b|a|ą|ach|ami|ie|om|y)(?= z dnia)')
+    ustaw_followed_by_ctr = count_by_regex(acts(), r'(ustaw)(\b|a|ą|ach|ami|ę|ie|om|y)(?= z dnia)')
     print('All forms from the word "ustawa" followed by "z dnia":')
     print(ustaw_followed_by_ctr)
     ustaw_followed_by_total = np.sum(list(ustaw_followed_by_ctr.values()))
     print(f'Total count: {ustaw_followed_by_total}')
 
-    ustaw_not_followed_by_ctr = count_by_regex(acts(), r'(ustaw)(\b|a|ą|ach|ami|ie|om|y)(?! z dnia)')
+    ustaw_not_followed_by_ctr = count_by_regex(acts(), r'(ustaw)(\b|a|ą|ach|ami|ę|ie|om|y)(?! z dnia)')
     print('All forms from the word "ustawa" not followed by "z dnia":')
     print(ustaw_not_followed_by_ctr)
     ustaw_not_followed_by_total = np.sum(list(ustaw_not_followed_by_ctr.values()))
@@ -52,7 +52,7 @@ def main():
     print(f'Check: {ustaw_total} =?= {ustaw_followed_by_total} + {ustaw_not_followed_by_total} = '
           f'{ustaw_followed_by_total + ustaw_not_followed_by_total}')
 
-    ustaw_not_following_ctr = count_by_regex(acts(), r'(?<!o zmianie )(ustaw)(\b|a|ą|ach|ami|ie|om|y)')
+    ustaw_not_following_ctr = count_by_regex(acts(), r'(?<!o zmianie )(ustaw)(\b|a|ą|ach|ami|ę|ie|om|y)')
     print('All forms from the word "ustawa" not following "o zmianie":')
     print(ustaw_not_following_ctr)
     ustaw_not_following_total = np.sum(list(ustaw_not_following_ctr.values()))
