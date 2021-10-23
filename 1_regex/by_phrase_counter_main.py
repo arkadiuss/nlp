@@ -86,7 +86,7 @@ def main():
         Unit('wyraz', ['wyraz', 'wyrazy']),
         Unit('zdanie', ['zdanie', 'zdania']),
     ]
-    countable_units = units[:4]
+    countable_units = units[:5]
     ctr = ByPhraseUnitCounter()
     adds = ctr.count_additions(acts())
     rems = ctr.count_removals(acts())

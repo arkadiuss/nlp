@@ -12,7 +12,7 @@ changes regex: `([\w§]+)\.*[\s]+\d+[\s]+otrzymuje brzmienie`
 ![Types of removals](./img/phrase_counter/by_unit_removals.png)
 ![Types of changes](./img/phrase_counter/by_unit_changes.png)
 
-As a "unit" on the next two graphs we treat: ustęp, paragraf, artykuł, punkt.
+As a "unit" on the next two graphs we treat: ustęp, paragraf, artykuł, punkt, litera.
 
 Amendments of units total:
 
