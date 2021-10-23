@@ -15,7 +15,7 @@ class ByPhraseUnitCounter:
         return self.count_by_regex_total(acts, r'dodaje[\s]+się[\s]+([\w§]+)')
 
     def count_removals(self, acts) -> Counter:
-        return self.count_by_regex_total(acts, r'skreśla[\s]+się[\s]+([\w§]+)')
+        return self.count_by_regex_total(acts, r'(?:skreśla[\s]+się[\s]+|uchyla[\s]+się[\s]+)([\w§]+)')
 
     def count_changes(self, acts) -> Counter:
         return self.count_by_regex_total(acts, r'([\w§]+)\.*[\s]+\d+[\s]+otrzymuje brzmienie')
@@ -32,7 +32,7 @@ class ByPhraseUnitCounter:
         return self.count_by_regex_by_year(acts, years, r'dodaje[\s]+się[\s]+([\w§]+)')
 
     def count_removals_by_year(self, acts, years) -> {int: Counter}:
-        return self.count_by_regex_by_year(acts, years, r'skreśla[\s]+się[\s]+([\w§]+)')
+        return self.count_by_regex_by_year(acts, years, r'(?:skreśla[\s]+się[\s]+|uchyla[\s]+się[\s]+)([\w§]+)')
 
     def count_changes_by_year(self, acts, years) -> {int: Counter}:
         return self.count_by_regex_by_year(acts, years, r'([\w§]+)\.*[\s]+\d+[\s]+otrzymuje brzmienie')
