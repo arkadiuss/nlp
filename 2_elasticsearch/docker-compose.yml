@@ -8,3 +8,5 @@ services:
       - 9300:9300
     environment:
       - discovery.type=single-node
+    volumes:
+      - ./data01:/usr/share/elasticsearch/data
