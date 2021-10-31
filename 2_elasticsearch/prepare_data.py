@@ -17,7 +17,7 @@ def create_index(client: Elasticsearch):
           'number_of_replicas': 0,
           'analysis': {
             'analyzer': {
-              'polish-bills-analyzer': {
+              'default': {
                 'type': 'custom',
                 'tokenizer': 'standard',
                 'char_filter': [
@@ -64,7 +64,7 @@ def index_bills(client: Elasticsearch):
   helpers.bulk(client, sources)
     
   print('Indexing completed.')
-  
+    
 
 if __name__ == '__main__':
 
