@@ -2,11 +2,13 @@ version: '3.8'
 
 services:
   elastic:
-    build: .
+    build: 
+      context: .
+      file:
     ports:
       - 9200:9200
       - 9300:9300
     environment:
       - discovery.type=single-node
     volumes:
-      - ./data01:/usr/share/elasticsearch/data
+      - ./elastic/data01:/usr/share/elasticsearch/data
