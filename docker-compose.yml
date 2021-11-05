@@ -4,7 +4,7 @@ services:
   elastic:
     build: 
       context: .
-      file:
+      dockerfile: elastic/Dockerfile 
     ports:
       - 9200:9200
       - 9300:9300
