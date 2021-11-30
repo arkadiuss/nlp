@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  krnnt:
+    image: apohllo/krnnt:0.1
+    ports:
+      - 9200:9200
+    command: python3 /home/krnnt/krnnt/krnnt_serve.py /home/krnnt/krnnt/data
